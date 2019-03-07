@@ -1,12 +1,12 @@
-import { NgModule }             from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent} from './home/home.component';
-import { CalendarioComponent} from './calendario/calendario.component';
-
+import { LoginComponent} from './login/login.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'calendario', component: CalendarioComponent}
+  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 
 @NgModule({

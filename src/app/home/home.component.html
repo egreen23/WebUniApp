@@ -1,4 +1,8 @@
+<div *ngIf="user">
 
+  <h2>{{user.nome | uppercase}} Details</h2>
+  <div><span>id: </span>{{user.idMatricola}}</div>
+</div>
 <h2>Home </h2>
 <ul>
   <li>
@@ -8,10 +12,18 @@
 
   </li>
   <li>
-    <h2>Aula</h2>
+    <nav>
+      <a routerLink="/aula">Aula</a>
+    </nav>
   </li>
   <li>
     <h2>Corsi di studio</h2>
+  </li>
+  <li>
+    <h2>Insegnamenti</h2>
+  </li>
+  <li>
+    <h2>Docenti</h2>
   </li>
   <li>
     <h2>Seganalazioni</h2>

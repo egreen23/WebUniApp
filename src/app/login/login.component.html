@@ -2,13 +2,16 @@
   <div class="card-body">
     <h5 class="card-title">Login</h5>
     <div class="form-group">
-      <label for="matricola">Matricola</label>
-      <input type="text" class="form-control" id="matricola"  [(ngModel)]="matricola">
+      <label for="idMatricola">Matricola</label>
+      <input type="text" class="form-control" id="idMatricola"  [(ngModel)]="user.idMatricola">
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" [(ngModel)]="password">
+      <input type="password" class="form-control" id="password" [(ngModel)]="user.password">
     </div>
-    <button type="submit" class="btn btn-primary" (click)="tryLogin()">Login</button>
+
+    <!--<a routerLink="/home">--> <button type="submit" class="btn btn-primary" (click)="tryLogin()"> Login</button><!--</a>-->
   </div>
+
 </div>
+

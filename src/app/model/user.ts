@@ -1,4 +1,4 @@
-export interface User {
+export class User {
   idMatricola: number;
   nome: string;
   cognome: string;
@@ -7,5 +7,6 @@ export interface User {
   data_di_nascita: string;
   indirizzo: string;
   telefono: string;
-  tipo: string;
+
+  constructor() {}
 }
