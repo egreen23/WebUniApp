@@ -1,0 +1,10 @@
+<div name="lista">
+  <ul class="aule">
+    <li *ngFor="let room of aule">
+      <a routerLink="/aula/{{room.idAula}}">
+      nome: <span class="badge">{{room.nome}}</span>
+      edificio:  <span class="badge">{{room.edificio}}</span>
+      </a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,39 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit()" #aulaForm="ngForm">
+    <div class="form-group">
+      <label >Nome
+       <input type="text" class="form-control" id="nome" [ngModel]="room?.nome" (ngModelChange)="room?.nome" name="nome" #name="ngModel" required  #name="ngModel">
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Name is required
+        </div>
+      </label>
+    </div>
+    <div class="form-group">
+      <label >Edificio
+       <input type="text" class="form-control" id="Edificio" [ngModel]="room?.edificio" (ngModelChange)="room?.edificio" name="edificio" required #edificio="ngModel">
+        <div [hidden]="edificio.valid || edificio.pristine"
+             class="alert alert-danger">
+          Edificio is required
+        </div>
+      </label>
+    </div>
+
+    <div class="form-group">
+        <label >Piano
+         <input type="text" class="form-control" id="Piano" [ngModel]="room?.piano" (ngModelChange)="room?.piano" name="piano" required #piano="ngModel">
+          <div [hidden]="piano.valid || piano.pristine"
+               class="alert alert-danger">
+            Piano is required
+          </div>
+        </label>
+    </div>
+
+
+
+    <button type="submit" class="btn btn-success" [disabled]="!aulaForm.form.valid">Submit</button>
+
+  </form>
+</div>
+
+<button (click)="goBack()">go back</button>
