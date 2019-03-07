@@ -7,7 +7,9 @@ import {UserService} from './user.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json'
+    'Content-Type':  'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'POST'
   })
 };
 
@@ -20,8 +22,8 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   login(idMatricola: number, password: string): Observable<User> {
-    const url = `${this.urlServer}/user/isValidate/${idMatricola}/${password}`;
-    return this.http.get<User>(url, httpOptions);
+    const url = `${this.urlServer}/seg/logSegreteria/${idMatricola}/${password}`;
+    return this.http.post<User>(url, httpOptions);
 
 
   }

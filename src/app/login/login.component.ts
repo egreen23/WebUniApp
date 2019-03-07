@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
   tryLogin() {
     this.loginserv.login(this.user.idMatricola, this.user.password).subscribe(user => this.user = user);
 
-    this.router.navigate(['/home']);
+    //this.router.navigate(['/home']);
 
   }
 

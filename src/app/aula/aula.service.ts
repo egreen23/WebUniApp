@@ -7,7 +7,9 @@ import {Aula} from '../model/aula';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json'
+    'Content-Type':  'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'POST'
   })
 };
 
@@ -34,6 +36,6 @@ export class AulaService {
 
   updateAula(room: Aula): Observable<Aula> {
     const url = `${this.urlServer}/aula/updateAulaById/${room.idAula}`;
-    return this.http.put<Aula>(url, room, httpOptions);
+    return this.http.post<Aula>(url, room, httpOptions);
   }
 }
