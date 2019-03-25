@@ -11,7 +11,9 @@ import { Location } from '@angular/common';
 })
 export class AulaDetailComponent implements OnInit {
 
-  room: Aula;
+  //room: Aula = null;
+
+  room = new Aula(1, '', 1, 1, '', '');
 
   constructor(private aulaService: AulaService,
               private route: ActivatedRoute,
@@ -22,10 +24,14 @@ export class AulaDetailComponent implements OnInit {
     this.getAula();
   }
 
+  // TODO: Remove this when we're done
+  get diagnostic() { return JSON.stringify(this.room); }
+
   getAula(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.aulaService.getAulabyId(id)
       .subscribe(room => this.room = room);
+
   }
 
   goBack(): void {
@@ -34,6 +40,7 @@ export class AulaDetailComponent implements OnInit {
 
   onSubmit(): void {
     this.aulaService.updateAula(this.room).subscribe(room => this.room = room);
+    console.log(JSON.stringify(this.room));
   }
 
 }

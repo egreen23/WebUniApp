@@ -1,8 +1,14 @@
 <div name="lista">
   <ul class="calendari">
     <li *ngFor="let cal of calendari">
-      id: <span class="badge">{{cal.idCalendario}}</span>
-      dataI:  <span class="badge">{{cal.dataInizio}}</span>
+      <a routerLink="/calendario/{{cal.idCalendario}}">
+        calendario:  <span class="badge">{{cal.idCalendario}}</span>
+      dataI :  <span class="badge">{{cal.dataInizio}}</span>
+      dataF :  <span class="badge">{{cal.dataFine}}</span>
+      tipo :  <span class="badge">{{cal.tipo}}</span>
+      anno :  <span class="badge">{{cal.anno}}</span>
+      semestre :  <span class="badge">{{cal.semestre}}</span>
+      </a>
     </li>
   </ul>
 </div>

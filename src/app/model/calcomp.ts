@@ -1,13 +1,16 @@
 export class Calcomp {
-  orarioFine: string;
-  nomeInsegnamento: string;
-  id: number;
-  nomeAula: string;
-  nomeDocente: string;
-  data: string;
-  nomeCorso: string;
-  cognomeDocente: string;
-  orarioInizio: string;
-  tipoCorso: string;
-  crediti: number;
+
+  constructor (
+  public orarioFine: string,
+  public nomeInsegnamento: string,
+  public id: number,
+  public nomeAula: string,
+  public nomeDocente: string,
+  public data: string,
+  public nomeCorso: string,
+  public cognomeDocente: string,
+  public orarioInizio: string,
+  public tipoCorso: string,
+  public crediti: number,
+  ) {}
 }

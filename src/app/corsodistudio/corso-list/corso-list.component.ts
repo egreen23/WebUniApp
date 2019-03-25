@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CorsoListComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit() {
