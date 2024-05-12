@@ -1,0 +1,33 @@
+<mat-accordion>
+  <div id="head">
+    <button mat-raised-button id="back" color="primary" (click)="goBack()">Indietro</button>
+    <p id="title">Modifica Corso di Studio</p>
+  </div>
+  <form (ngSubmit)="onSubmit()" #CorsoForm="ngForm">
+    <mat-form-field id="nomeinp" class="form" appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput placeholder="Nome" id="nome" name="nome" [(ngModel)]="corso.nome" #nome="ngModel" required>
+      <mat-error *ngIf="nome.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" id="desc" appearance="outline">
+      <mat-label>Descrizione</mat-label>
+      <textarea matInput mat-autosize placeholder="Descrizione" id="descrizione" [(ngModel)]="corso.descrizione" name="descrizione" #descrizione="ngModel" required></textarea>
+      <mat-error *ngIf="descrizione.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Tipo</mat-label>
+      <input matInput placeholder="" id="tipo" [(ngModel)]="corso.tipo" name="tipo" #tipo="ngModel" required>
+      <mat-error *ngIf="tipo.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+
+    <br>
+    <button mat-raised-button class="sub" color="accent" type="submit" [disabled]="!CorsoForm.form.valid">Invio</button>
+
+  </form>
+
+  <app-insegnamento-list [id]="corso.idcorsoDiStudio"></app-insegnamento-list>
+
+  <br>
+</mat-accordion>

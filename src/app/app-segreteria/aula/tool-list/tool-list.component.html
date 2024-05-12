@@ -1,0 +1,36 @@
+<!--<div name="lista">
+  <h2>Lista tools:</h2>
+  <ul class="tools">
+    <li *ngFor="let tool of tools">
+      <input type="checkbox" name="it" id="it" [(ngModel)]="tool.checked">
+        nome: <span class="badge">{{tool.nome}}</span>
+        descrizione:  <span class="badge">{{tool.descrizione}}</span>
+    </li>
+  </ul>
+</div>
+
+<button (click)="DeleteAll()">Elimina</button>-->
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Tools
+      </mat-panel-title>
+      <mat-panel-description>
+        Lista tools
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div>
+      <mat-nav-list>
+        <mat-list-item *ngFor="let tool of tools">
+          <p class="dati">{{tool.nome}}</p>
+          <p class="int">Descrizione:</p><p class="dati">{{tool.descrizione}}</p>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+
+
+  </mat-expansion-panel>
+</mat-accordion>

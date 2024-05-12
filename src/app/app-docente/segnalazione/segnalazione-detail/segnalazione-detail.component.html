@@ -1,0 +1,89 @@
+<mat-accordion>
+  <div id="head">
+    <button mat-raised-button id="back" color="primary" (click)="goBack()">Indietro</button>
+    <p id="title">Dettagli Segnalazione</p>
+  </div>
+  <form #segnForm="ngForm">
+    <mat-form-field id="seg" class="form" appearance="outline">
+      <mat-label>Segreteria</mat-label>
+      <input matInput id="segreteria" name="segreteria" [(ngModel)]="segnalazione.seg" readonly #seg="ngModel">
+      <input matInput  id="segmail" name="segmail" [(ngModel)]="segnalazione.emailSegreteria" readonly #segmail="ngModel">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Aula</mat-label>
+      <input matInput id="aula" [(ngModel)]="segnalazione.nomeAula" name="aula" readonly required #aula="ngModel">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Data</mat-label>
+      <input matInput placeholder="" id="data" [(ngModel)]="segnalazione.data" name="data" readonly required #data="ngModel">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Titolo</mat-label>
+      <input matInput id="titolo" [(ngModel)]="segnalazione.titolo" name="titolo" required readonly #titolo="ngModel">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Testo</mat-label>
+      <textarea matInput id="testo" [(ngModel)]="segnalazione.testo" name="testo" required readonly #testo="ngModel"></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Stato</mat-label>
+      <input matInput  id="stato" [(ngModel)]="segnalazione.stato" readonly name="stato" #stato="ngModel">
+    </mat-form-field>
+    <br>
+
+  </form>
+
+  <br>
+  <!--<mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Altre segnalazioni
+      </mat-panel-title>
+      <mat-panel-description>
+        Lista segnalazioni aula {{segnalazione.nomeAula}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div>
+      <mat-nav-list>
+        <mat-list-item *ngFor="let seg of segnAula">
+          <p>{{seg.data}} Docente: {{ins.professore}}</p>
+          <button mat-mini-fab color="primary" [routerLink]="['/corsodistudio/inseg', ins.idInsegnamento]">Apri</button>
+
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+  </mat-expansion-panel>-->
+  <button mat-raised-button color="accent" id="sub" (click)="setTrue()">Vedi altre segnalazioni di quest'aula</button>
+
+  <div *ngIf="visualizza">
+        <mat-nav-list>
+          <mat-list-item id="item" *ngFor="let seg of segnAula">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <p class="dati">{{seg.data}}</p> <p class="int"> Aula: </p><p class="dati"> {{seg.nomeAula}}</p><p class="int"> Titolo: </p><p class="dati"> {{seg.titolo}}</p><p class="int"> Docente: </p><p class="dati"> {{seg.prof}}</p> <p class="int"> Stato:</p><p class="dati"> {{seg.stato}}</p>
+                </mat-panel-title>
+                <mat-panel-description>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <p>{{seg.testo}}</p>
+              <br>
+              <p>Nota: {{seg.nota}}</p>
+<!--
+              <textarea matInput mat-autosize id="testosegn" [(ngModel)]="seg.testo" name="testosegn" readonly #testosegn="ngModel"></textarea>
+              <mat-label>Nota</mat-label>
+              <p>{{seg.nota}}</p>
+<!--
+              <textarea matInput mat-autosize id="notasegn" [(ngModel)]="seg.nota" name="notasegn" readonly #notasegn="ngModel"></textarea>
+-->
+
+            </mat-expansion-panel>
+          </mat-list-item>
+        </mat-nav-list>
+  </div>
+</mat-accordion>

@@ -1,0 +1,44 @@
+<mat-accordion>
+  <div id="head">
+    <button mat-raised-button id="back" color="primary" (click)="goBack()">Indietro</button>
+    <p id="title">Nuovo Evento</p>
+  </div>
+  <form (ngSubmit)="onSubmit()" #newLezioneForm="ngForm">
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Ora Inizio</mat-label>
+      <input matInput placeholder="" type="time" id="ora_i" [(ngModel)]="newLezioneList[0].orarioInizio" name="ora_i" #ora_i="ngModel" required>
+      <mat-error *ngIf="ora_i.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Ora Fine</mat-label>
+      <input matInput placeholder="" type="time" id="ora_f" [(ngModel)]="newLezioneList[0].orarioFine" name="ora_f" #ora_f="ngModel" required>
+      <mat-error *ngIf="ora_f.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Data</mat-label>
+      <input matInput placeholder="" type="date" id="data" [(ngModel)]="newLezioneList[0].data" name="data" #data="ngModel" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" required>
+      <mat-error *ngIf="data.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Aula</mat-label>
+      <mat-select placeholder="" id="aule" name="aule" [(ngModel)]="newLezioneList[0].idAula"  #aula="ngModel"  required>
+        <mat-option *ngFor="let room of aule" [value]="room.idAula">{{room.nome}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" id="ins" appearance="outline">
+      <mat-label>Insegnamenti</mat-label>
+      <mat-select placeholder="" id="inseg" name="inseg" [(ngModel)]="newLezioneList[0].idInsegnamento" #insegnamento="ngModel" required>
+        <mat-option *ngFor="let teach of insegnamenti" [value]="teach.idInsegnamento">{{teach.nome}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-checkbox name="it" id="it" [(ngModel)]="iterate" color="primary">Inserisci per tutte le settimane del calendario</mat-checkbox>
+    <br>
+    <button mat-raised-button id="sub" color="accent" type="submit" [disabled]="!newLezioneForm.form.valid">Invio</button>
+  </form>
+  <br>
+</mat-accordion>

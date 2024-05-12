@@ -1,0 +1,46 @@
+.form {
+  margin-left: 50px;
+  margin-top: 3%;
+  margin-right: 15px;
+
+}
+
+#back {
+  margin-left: 90%;
+  margin-bottom: 0px;
+  margin-top: 38px;
+}
+
+#sub {
+  margin-left: 50px;
+  margin-top: 3%;
+
+}
+
+#title {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 32px;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  color: #000000;
+  font-weight: 400;
+  text-decoration: none;
+  font-style: italic;
+  font-variant: normal;
+  text-transform: none;
+  margin-left: 50px;
+  margin-top: -4%;
+}
+
+mat-form-field#txt {
+  width: 85%;
+}
+
+mat-form-field#note {
+  width: 85%;
+}
+
+mat-form-field#doc {
+  width: 60%;
+
+}

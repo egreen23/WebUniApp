@@ -1,0 +1,24 @@
+
+<mat-accordion>
+  <button mat-raised-button color="primary" id="new" (click)="newInseg()">Nuovo Insegnamento</button>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Insegnamenti
+      </mat-panel-title>
+      <mat-panel-description>
+        Lista insegnamenti
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div>
+      <mat-nav-list>
+        <mat-list-item *ngFor="let ins of insegnamenti">
+          <p class="dati">{{ins.nome}}<p class="int"> Docente:</p><p class="dati"> {{ins.professore}}</p>
+          <button class="btn" color="primary" [routerLink]="['/corsodistudio/inseg', ins.idInsegnamento]"><i class="fas fa-arrow-circle-right"></i></button>
+
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

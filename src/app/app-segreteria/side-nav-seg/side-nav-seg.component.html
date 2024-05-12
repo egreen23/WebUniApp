@@ -1,0 +1,67 @@
+<!--<mat-grid-list cols="1" rowHeight="2:1">
+  <mat-grid-tile>
+    <nav>
+      <a [routerLink]="['/calendario']">Calendario</a>      <i class="fab fa-accessible-icon"></i>
+
+    </nav>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <nav>
+      <a [routerLink]="['/aule']">Aule</a>
+    </nav>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <nav>
+      <a [routerLink]="['/corsodistudio']">Corso Di Studio</a>
+    </nav>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <nav>
+      <a [routerLink]="['/docente']">Docenti</a>
+    </nav>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <nav>
+      <a [routerLink]="['/segnalaseg']">Segnalazioni</a>
+    </nav>
+  </mat-grid-tile>
+</mat-grid-list>-->
+<mat-list>
+  <h3 mat-subheader>Menu</h3>
+  <mat-list-item>
+    <nav>
+      <a [routerLink]="['/calendario']"> <i class="fas fa-calendar"></i> Calendari</a>
+    </nav>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+  <mat-list-item>
+    <nav>
+      <a [routerLink]="['/aule']"><i class="fas fa-door-open"></i> Aule</a>
+    </nav>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+  <mat-list-item>
+    <nav>
+      <a [routerLink]="['/corsodistudio']"><i class="fas fa-book"></i> Corsi Di Studio</a>
+    </nav>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+  <mat-list-item>
+    <nav>
+      <a [routerLink]="['/docente']"><i class="fas fa-user-tie"></i> Docenti</a>
+    </nav>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+  <mat-list-item>
+    <nav>
+      <a [routerLink]="['/segnalaseg', id]"> <i class="fas fa-clipboard"></i> Segnalazioni</a>
+    </nav>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+  <mat-list-item>
+    <nav>
+      <a [routerLink]="['/login']" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>

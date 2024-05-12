@@ -1,0 +1,17 @@
+
+
+<ng-container *ngIf="options">
+  <ng-fullcalendar
+    #fullcalendar
+    [eventsModel]="eventsModel"
+    [options]="options"
+    (dateClick)="dateClick($event)"
+    (eventDragStop)="eventDragStop($event)"
+    (eventClick)="eventClick($event)"
+
+  ></ng-fullcalendar>
+</ng-container>
+
+
+
+<!-- (clickButton)="clickButton($event)" -->

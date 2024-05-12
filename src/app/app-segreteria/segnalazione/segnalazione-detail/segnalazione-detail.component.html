@@ -1,0 +1,66 @@
+<mat-accordion>
+  <div id="head">
+    <button mat-raised-button id="back" color="primary" (click)="goBack()">Indietro</button>
+    <p id="title">Modifica Segnalazione</p>
+  </div>
+  <form (ngSubmit)="onSubmit()" #segForm="ngForm">
+    <mat-form-field id="doc" class="form" appearance="outline">
+      <mat-label>Docente</mat-label>
+      <input matInput id="docente" name="docente" [(ngModel)]="segnalazione.prof" readonly #prof="ngModel" required>
+      <input matInput  id="docentemail" name="docentemail" [(ngModel)]="segnalazione.emailDocente" readonly #profmail="ngModel" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Aula</mat-label>
+      <input matInput placeholder="" id="aula" [(ngModel)]="segnalazione.nomeAula" name="aula" readonly required #aula="ngModel">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Data</mat-label>
+      <input matInput placeholder="" id="data" [(ngModel)]="segnalazione.data" name="data" readonly required #data="ngModel">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Titolo</mat-label>
+      <input matInput id="titolo" [(ngModel)]="segnalazione.titolo" readonly name="titolo" #titolo="ngModel">
+    </mat-form-field>
+    <br>
+    <mat-form-field id="txt" class="form" appearance="outline">
+      <mat-label>Testo</mat-label>
+      <textarea mat-autosize matInput id="testo" name="testo" [(ngModel)]="segnalazione.testo" #testo="ngModel" readonly required></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field id="note" class="form" appearance="outline">
+      <mat-label>Nota</mat-label>
+      <textarea mat-autosize matInput id="nota" [(ngModel)]="segnalazione.nota" name="nota" #nota="ngModel"></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Stato</mat-label>
+      <input matInput id="stato" [(ngModel)]="segnalazione.stato" name="stato" required readonly #stato="ngModel">
+    </mat-form-field>
+    <swal
+      #mySwal
+      title="Cambia Stato"
+      text="Scelgi Stato"
+      type="question"
+      [showCancelButton]="true"
+    >
+      <div *swalPartial class="swal2-select">
+        <select class="swal2-select" id="swal2-content" name="swal" [(ngModel)]="segnalazione.stato">
+          <option value="Presa in carico">Presa in carico</option>
+          <option value="In lavorazione">In lavorazione</option>
+          <option value="Risolta">Risolta</option>
+          <option value="Rifiutata">Rifiutata</option>
+        </select>
+      </div>
+    </swal>
+    <button mat-raised-button [swal]="mySwal">Modifica Stato...</button>
+    <br>
+
+    <button mat-raised-button id="sub" color="accent" type="submit" [disabled]="!segForm.form.valid">Invio</button>
+
+  </form>
+
+
+</mat-accordion>

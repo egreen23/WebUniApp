@@ -1,0 +1,55 @@
+.int {
+  font-family: Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  color: #000000;
+  font-weight: 400;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  margin-top: 10px;
+
+
+}
+
+.dati {
+  font-family: Georgia, serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  color: #000000;
+  font-weight: 700;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  margin-right: 10px;
+  margin-top: 12px;
+
+}
+
+#title {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 39px;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  color: #000000;
+  font-weight: 400;
+  text-decoration: none solid rgb(68, 68, 68);
+  font-style: italic;
+  font-variant: normal;
+  text-transform: none;
+  color: darkgray;
+
+}
+
+
+i {
+  color: #3762bc;
+}
+
+h3 {
+  text-align: center;
+}

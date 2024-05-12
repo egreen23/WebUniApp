@@ -1,0 +1,12 @@
+<div id="search-component">
+
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" /><i class="fas fa-search"></i>
+
+  <ul class="search-result">
+    <li *ngFor="let docente of doc$ | async" >
+      <a [routerLink]="['/docente', docente.idMatricola]">
+        {{docente.professore}}
+      </a>
+    </li>
+  </ul>
+</div>

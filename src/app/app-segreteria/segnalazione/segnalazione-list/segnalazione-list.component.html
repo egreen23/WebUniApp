@@ -1,0 +1,25 @@
+
+<button mat-raised-button color="primary" id="back" (click)="goBack()">Indietro</button>
+<br>
+<h3 id="title">Lista Segnalazioni</h3>
+
+<mat-accordion>
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [(ngModel)]="toogle" (change)="filt()">
+    <mat-button-toggle value="Tutte">Tutte</mat-button-toggle>
+    <mat-button-toggle value="Aperto">Aperto</mat-button-toggle>
+    <mat-button-toggle value="Presa in carico">Presa in carico</mat-button-toggle>
+    <mat-button-toggle value="In lavorazione">In lavorazione</mat-button-toggle>
+    <mat-button-toggle value="Risolta">Risolta</mat-button-toggle>
+    <mat-button-toggle value="Rifiutata">Rifiutata</mat-button-toggle>
+  </mat-button-toggle-group>
+  <mat-nav-list>
+    <mat-list-item *ngFor="let seg of segnalazioni">
+      <p class="dati">{{seg.data}}</p> <p class="int"> Aula: </p><p class="dati"> {{seg.nomeAula}}</p><p class="int"> Titolo: </p><p class="dati"> {{seg.titolo}}</p> <p class="int"> Stato:</p><p class="dati"> {{seg.stato}}</p>
+<!--
+      <textarea matInput id="testo" name="testo" [(ngModel)]="seg.testo" #testo="ngModel" readonly required></textarea>
+-->
+      <button class="btn" color="primary" [routerLink]="['/segnalaseg/detail', seg.idSegnalazione]"><i class="fas fa-arrow-circle-right"></i></button>
+
+    </mat-list-item>
+  </mat-nav-list>
+</mat-accordion>

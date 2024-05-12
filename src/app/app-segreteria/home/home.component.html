@@ -1,0 +1,91 @@
+<!--<h2>Home </h2>
+<ul>
+  <li>
+    <nav>
+      <a [routerLink]="['/calendario']">Calendario</a>
+    </nav>
+
+  </li>
+  <li>
+    <nav>
+      <a [routerLink]="['/aule']">Aule</a>
+    </nav>
+  </li>
+  <li>
+    <nav>
+      <a [routerLink]="['/corsodistudio']">Corso Di Studio</a>
+    </nav>
+  </li>
+  <li>
+    <nav>
+      <a [routerLink]="['/docente']">Docenti</a>
+    </nav>
+  </li>
+  <li>
+    <nav>
+      <a [routerLink]="['/segnalaseg']">Segnalazioni</a>
+    </nav>
+  </li>
+</ul>-->
+<div class="body">
+  <mat-grid-list cols="2" >
+    <mat-grid-tile>
+      <div class="card">
+        <h5 class="card-header">Calendari recenti</h5>
+        <div class="card-body">
+          <table mat-table [dataSource]="calendari" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="Data">
+              <th mat-header-cell *matHeaderCellDef> Data Inizio </th>
+              <td mat-cell *matCellDef="let cal"> {{cal.dataInizio}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Corso">
+              <th mat-header-cell *matHeaderCellDef> Corso </th>
+              <td mat-cell *matCellDef="let cal"> {{cal.nomeCds}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Tipo">
+              <th mat-header-cell *matHeaderCellDef> Tipo </th>
+              <td mat-cell *matCellDef="let cal"> {{cal.tipo}} <button class="btn" [routerLink]="['/calendario',cal.idCalendario,cal.idCds,cal.tipo]"><i class="fas fa-arrow-circle-right"></i></button> </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+          </table>
+        </div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="card">
+        <h5 class="card-header">Segnalazioni recenti</h5>
+        <div class="card-body">
+          <table mat-table [dataSource]="segnalazioni" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="Data">
+              <th mat-header-cell *matHeaderCellDef> Data </th>
+              <td mat-cell *matCellDef="let seg"> {{seg.data}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Titolo">
+              <th mat-header-cell *matHeaderCellDef> Titolo </th>
+              <td mat-cell *matCellDef="let seg"> {{seg.titolo}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Stato">
+              <th mat-header-cell *matHeaderCellDef> Stato </th>
+              <td mat-cell *matCellDef="let seg"> {{seg.stato}} <button class="btn" [routerLink]="['/segnalaseg/detail', seg.idSegnalazione]"><i class="fas fa-arrow-circle-right"></i></button> </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+
+          </table>
+        </div>
+      </div>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</div>
+

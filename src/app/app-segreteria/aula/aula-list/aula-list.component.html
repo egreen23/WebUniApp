@@ -1,0 +1,44 @@
+<!--
+<div name="lista">
+  <ul class="aule">
+    <li *ngFor="let room of aule">
+      <input type="checkbox" name="it" id="it" [(ngModel)]="room.checked">
+
+      <a [routerLink]="['/aule', room.idAula]">
+      nome: <span class="badge">{{room.nome}}</span>
+      edificio:  <span class="badge">{{room.edificio}}</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<button (click)="deleteAllAule()">Elimina</button>
+-->
+
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Aule
+      </mat-panel-title>
+      <mat-panel-description>
+        Lista aule
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+      <div>
+        <mat-nav-list>
+          <mat-list-item *ngFor="let room of aule">
+            <mat-checkbox [(ngModel)]="room.checked" color="primary"></mat-checkbox>
+            <p class="dati">{{room.nome}} </p>
+            <p class="int">Edificio: </p><p class="dati">{{room.edificio}}</p>
+            <p class="int">Piano: </p><p class="dati">{{room.piano}}</p>
+            <button class="btn" color="primary" [routerLink]="['/aule', room.idAula]"><i class="fas fa-arrow-circle-right"></i></button>
+
+          </mat-list-item>
+        </mat-nav-list>
+      </div>
+    <button id="del" mat-raised-button color="warn" (click)="deleteAllAule()">Elimina Aule</button>
+  </mat-expansion-panel>
+</mat-accordion>

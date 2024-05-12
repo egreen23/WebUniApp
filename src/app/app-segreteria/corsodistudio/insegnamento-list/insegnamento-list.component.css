@@ -1,0 +1,48 @@
+#new {
+  margin-left: 20px;
+  margin-top: 25px;
+  margin-right: 75%;
+  margin-bottom: 15px;
+}
+
+.int {
+  font-family: Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  color: #000000;
+  font-weight: 400;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  margin-top: 10px;
+
+
+}
+
+.dati {
+  font-family: Georgia, serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  color: #000000;
+  font-weight: 700;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  margin-right: 10px;
+  margin-top: 12px;
+
+}
+
+mat-expansion-panel {
+  width: 95%;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+i {
+  color: #3762bc;
+}

@@ -1,0 +1,47 @@
+<mat-accordion>
+  <div id="head">
+    <button mat-raised-button id="back" color="primary" (click)="goBack()">Indietro</button>
+    <p id="title">Modifica Aula</p>
+  </div>
+  <form (ngSubmit)="onSubmit()" #compForm="ngForm">
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Ora Inizio</mat-label>
+      <input matInput placeholder="" type="time" id="ora_i" [(ngModel)]="comp.orarioInizio" name="ora_i" #ora_i="ngModel" readonly required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Ora Fine</mat-label>
+      <input matInput placeholder="" type="time" id="ora_f" [(ngModel)]="comp.orarioFine" name="ora_f" #ora_f="ngModel" readonly required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Data</mat-label>
+      <input matInput placeholder="" type="date" id="data" [(ngModel)]="comp.data" name="data" #data="ngModel" readonly pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" id="ins" appearance="outline">
+      <mat-label>Insegnamento</mat-label>
+      <input matInput placeholder="" id="ins" [(ngModel)]="comp.nomeInsegnamento" name="ins" #ins="ngModel" readonly required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Aula</mat-label>
+      <input matInput placeholder="" id="aula" [(ngModel)]="comp.nomeAula" name="aula" #aula="ngModel" readonly required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Nuova Aula</mat-label>
+      <mat-select placeholder="" class="form" id="aule" name="aule" [(ngModel)]="comp.idAula"  #idaula="ngModel"  required>
+        <mat-option *ngFor="let room of aule" [value]="room.idAula">{{room.nome}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <div class="buttons">
+      <button mat-raised-button id="sub" color="accent" type="submit" [disabled]="!compForm.form.valid">Invio</button>
+    </div>
+  </form>
+  <button mat-raised-button id="del" color="warn" (click)="deleteComp()">Elimina</button>
+
+  <br>
+  <br>
+</mat-accordion>

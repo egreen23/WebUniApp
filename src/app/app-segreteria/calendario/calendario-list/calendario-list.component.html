@@ -1,0 +1,110 @@
+<!--<div *ngFor="let cds of corsi">
+  <p>{{cds.nome}}</p>
+  <div *ngFor="let cal of calendari">
+    <ul *ngIf="cal.idCorsodistudio === cds.idcorsoDiStudio">
+
+      <li>
+        <input type="checkbox" name="it" id="it" [(ngModel)]="cal.checked">
+        <a [routerLink]="['/calendario',cal.idCalendario,cal.idCorsodistudio,cal.tipo]">
+          calendario:  <span class="badge">{{cal.idCalendario}}</span>
+          dataI :  <span class="badge">{{cal.dataInizio}}</span>
+          dataF :  <span class="badge">{{cal.dataFine}}</span>
+          tipo :  <span class="badge">{{cal.tipo}}</span>
+          anno :  <span class="badge">{{cal.anno}}</span>
+          semestre :  <span class="badge">{{cal.semestre}}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</div>-->
+
+<!--
+<button (click)="deleteAll()">Elimina</button>
+-->
+<h3 id="title">Lista Calendari</h3>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Lezione
+      </mat-panel-title>
+      <mat-panel-description>
+        Calendari lezioni
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div *ngFor="let cds of corsi">
+      <p class="title">{{cds.nome}}</p>
+      <div *ngFor="let cal of calendari">
+        <mat-nav-list *ngIf="cal.idCds === cds.idcorsoDiStudio">
+          <mat-list-item *ngIf="cal.tipo === 'Lezione'">
+            <div class="info">
+              <mat-checkbox [(ngModel)]="cal.checked" color="primary"></mat-checkbox>
+              <!--<a [routerLink]="['/calendario',cal.idCalendario,cal.idCorsodistudio,cal.tipo]">
+                Inizio :  <span class="badge">{{cal.dataInizio}}</span>
+                Fine :  <span class="badge">{{cal.dataFine}}</span>
+                Anno :  <span class="badge">{{cal.anno}}</span>
+                Semestre :  <span class="badge">{{cal.semestre}}</span>
+              </a>-->
+
+              <p class="int">Inizio: </p><p class="dati">{{cal.dataInizio}}</p>
+              <p class="int">Fine: </p><p class="dati"> {{cal.dataFine}}</p>
+              <p class="int">Anno: </p> <p class="dati">{{cal.anno}}</p>
+              <p class="int">Semestre: </p> <p class="dati">{{cal.semestre}}</p>
+              <button class="btn" [routerLink]="['/calendario',cal.idCalendario,cal.idCds ,cal.tipo]"><i class="fas fa-arrow-circle-right"></i></button>
+            </div>
+
+          </mat-list-item>
+        </mat-nav-list>
+      </div>
+
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Esame
+      </mat-panel-title>
+      <mat-panel-description>
+        Calendari esami
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div *ngFor="let cds of corsi">
+      <p class="title">{{cds.nome}}</p>
+      <div *ngFor="let cal of calendari">
+        <mat-nav-list *ngIf="cal.idCds === cds.idcorsoDiStudio">
+          <mat-list-item *ngIf="cal.tipo === 'Esame'">
+            <!--
+                        <input type="checkbox" name="it" id="it" [(ngModel)]="cal.checked">
+            -->
+            <div class="info">
+             <mat-checkbox [(ngModel)]="cal.checked" color="primary"></mat-checkbox>
+            <!--<a [routerLink]="['/calendario',cal.idCalendario,cal.idCorsodistudio,cal.tipo]">
+              Inizio :  <span class="badge">{{cal.dataInizio}}</span>
+              Fine :  <span class="badge">{{cal.dataFine}}</span>
+              Anno :  <span class="badge">{{cal.anno}}</span>
+              Semestre :  <span class="badge">{{cal.semestre}}</span>
+            </a>-->
+
+              <p class="int">Inizio: </p><p class="dati">{{cal.dataInizio}}</p>
+              <p class="int">Fine: </p><p class="dati"> {{cal.dataFine}}</p>
+              <p class="int">Anno: </p> <p class="dati">{{cal.anno}}</p>
+              <p class="int">Semestre: </p> <p class="dati">{{cal.semestre}}</p>
+              <button class="btn" [routerLink]="['/calendario',cal.idCalendario,cal.idCds ,cal.tipo]"><i class="fas fa-arrow-circle-right"></i></button>            </div>
+          </mat-list-item>
+        </mat-nav-list>
+      </div>
+
+    </div>
+  </mat-expansion-panel>
+  <br>
+  <button id="del" mat-raised-button color="warn" (click)="deleteAll()">Elimina</button>
+
+</mat-accordion>
+
+
+
+
+

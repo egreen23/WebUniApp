@@ -1,0 +1,12 @@
+<div id="search-component">
+
+  <input #searchBox id="search-box" placeholder="Cerca per nome aula" (input)="search(searchBox.value)" /><i class="fas fa-search"></i>
+
+  <ul class="search-result">
+    <li *ngFor="let room of aule$ | async" >
+      <a [routerLink]="['/aule', room.idAula]">
+        {{room.nome}}
+      </a>
+    </li>
+  </ul>
+</div>

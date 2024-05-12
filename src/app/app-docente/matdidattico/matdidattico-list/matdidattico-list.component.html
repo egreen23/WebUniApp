@@ -1,0 +1,33 @@
+<!--
+<button (click)="newMat()">Inserisci</button>
+-->
+
+<div>
+  <button id="new" mat-raised-button color="primary" (click)="newMat()">Nuovo materiale</button>
+
+  <button id="back" mat-raised-button color="primary" (click)="goBack()">Indietro</button>
+
+</div>
+<br>
+
+<!--<div name="lista">
+  <ul class="mat">
+    <li *ngFor="let mat of materiale">
+        data: <span class="badge">{{mat.data}}</span>
+        nome: <span class="badge">{{mat.nome}}</span>
+        url:  <span class="badge"><a href="{{mat.url}}">{{mat.url}}</a> </span>
+    </li>
+  </ul>
+</div>-->
+<h3 id="title">Mat - {{inseg?.nome}}</h3>
+<mat-accordion id="body">
+  <mat-nav-list>
+    <mat-list-item *ngFor="let mat of materiale">
+      <p class="dati">{{mat.data}}</p>
+      <a *ngIf="mat.fburl | async as url" [href]="url" target="_blank" rel="noopener">{{mat.nome}}</a>
+    </mat-list-item>
+  </mat-nav-list>
+</mat-accordion>
+
+<br>
+

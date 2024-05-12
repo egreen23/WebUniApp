@@ -1,0 +1,23 @@
+<mat-accordion>
+  <div id="head">
+    <button mat-raised-button id="back" color="primary" (click)="goBack()">Indietro</button>
+    <p id="title">Nuovo Tool</p>
+  </div>
+  <form (ngSubmit)="onSubmit()" #newtoolForm="ngForm">
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput placeholder="Nome" id="nome" name="nome" [(ngModel)]="newTool.nome" #nome="ngModel" required>
+      <mat-error *ngIf="nome.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Descrizione</mat-label>
+      <input matInput placeholder="" id="descrizione" [(ngModel)]="newTool.descrizione" name="descrizione" required #descrizione="ngModel">
+      <mat-error *ngIf="descrizione.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button id="sub" color="accent" type="submit" [disabled]="!newtoolForm.form.valid">Invio</button>
+
+  </form>
+  <br>
+</mat-accordion>

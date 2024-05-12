@@ -1,0 +1,49 @@
+<mat-accordion>
+  <div id="head">
+    <button mat-raised-button id="back" color="primary" (click)="goBack()">Indietro</button>
+    <p id="title">Nuova Segnalazione</p>
+  </div>
+  <form (ngSubmit)="onSubmit()" #newsegnForm="ngForm">
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Segreteria</mat-label>
+      <mat-select placeholder="" id="segreteria" name="segreteria" [(ngModel)]="segnalazione.idSegreteria"  #segretario="ngModel"  required >
+        <mat-option *ngFor="let segr of segretari" [value]="segr.idSegreteria">{{segr.segretario}}</mat-option>
+        <mat-error *ngIf="segretario.invalid">Campo obbligatorio</mat-error>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Aula</mat-label>
+      <mat-select placeholder="" id="aula" name="aula" [(ngModel)]="segnalazione.idAula"  #aula="ngModel"  required  >
+        <mat-option *ngFor="let room of aule" [value]="room.idAula">{{room.nome}}</mat-option>
+        <mat-error *ngIf="aula.invalid">Campo obbligatorio</mat-error>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Data</mat-label>
+      <input matInput placeholder="" id="data" [(ngModel)]="segnalazione.data" name="data" readonly required #data="ngModel">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+    <mat-label>Titolo</mat-label>
+      <input matInput id="titolo" name="titolo" [(ngModel)]="segnalazione.titolo" #titolo="ngModel"  required>
+    </mat-form-field>
+    <br>
+    <mat-form-field id="txt" class="form" appearance="outline">
+      <mat-label>Testo</mat-label>
+      <textarea matInput mat-autosize  id="testo" name="testo" [(ngModel)]="segnalazione.testo" #testo="ngModel"  required></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Stato</mat-label>
+      <input matInput id="stato" [(ngModel)]="segnalazione.stato" readonly name="stato" #stato="ngModel">
+    </mat-form-field>
+    <br>
+
+    <button mat-raised-button id="sub" color="accent" type="submit" [disabled]="!newsegnForm.form.valid">Invio</button>
+
+  </form>
+
+
+</mat-accordion>

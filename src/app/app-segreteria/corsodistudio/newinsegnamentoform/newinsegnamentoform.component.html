@@ -1,0 +1,42 @@
+<mat-accordion>
+  <div id="head">
+    <button mat-raised-button id="back" color="primary" (click)="goBack()">Indietro</button>
+    <p id="title">Nuovo Insegnamento - {{currentcorso?.nome}}</p>
+  </div>
+  <form (ngSubmit)="onSubmit()" #newInsegnamentoForm="ngForm">
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput placeholder="Nome" id="nome" [(ngModel)]="inseg.nome" name="nome" #nome="ngModel" required>
+      <mat-error *ngIf="nome.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Descrizione</mat-label>
+      <input matInput placeholder="Descrizione" id="descrizione" [(ngModel)]="inseg.descrizione" name="descrizione" #descrizione="ngModel" required>
+      <mat-error *ngIf="descrizione.invalid">Campo obbligatorio </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Crediti</mat-label>
+      <input matInput placeholder="Crediti" id="crediti" [(ngModel)]="inseg.crediti" name="crediti" #crediti="ngModel" pattern="\d*" required>
+      <mat-error *ngIf="crediti.invalid">Campo obbligatorio (inserire un numero)</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Anno Corso</mat-label>
+      <input matInput placeholder="Anno Corso" id="annocorso" [(ngModel)]="inseg.annoCorso" name="annocorso" #annocorso="ngModel" required>
+      <mat-error *ngIf="annocorso.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Docente</mat-label>
+      <mat-select placeholder="" id="docente" name="docente" [(ngModel)]="inseg.idDocente"  #docente="ngModel"  required>
+        <mat-option *ngFor="let doc of docenti" [value]="doc.idDocente">{{doc.professore}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button id="sub" color="accent" type="submit" [disabled]="!newInsegnamentoForm.form.valid">Invio</button>
+
+  </form>
+  <br>
+</mat-accordion>

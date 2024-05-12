@@ -1,0 +1,104 @@
+<!--<div class="container">
+  {{diagnostic}}
+  <h1>Nuovo materiale</h1>
+  <form (ngSubmit)="onSubmit()" #newMatForm="ngForm">
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input type="text" class="form-control" id="nome" [(ngModel)]="mat.nome" name="nome" #nome="ngModel" required>
+      <div [hidden]="mat.valid || mat.pristine"
+           class="alert alert-danger">
+        Nome is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="url">Url</label>
+      <input type="text" class="form-control" id="url" [(ngModel)]="mat.url" name="url" #url="ngModel" required>
+      <div [hidden]="url.valid || url.pristine"
+           class="alert alert-danger">
+        Url is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="data">Data</label>
+      <input type="text" class="form-control" id="data" [(ngModel)]="mat.data" name="data" #data="ngModel" readonly>
+    </div>
+
+
+    <button type="submit" class="btn btn-success" [disabled]="!newMatForm.form.valid">Submit</button>
+
+  </form>
+
+  <button (click)="goBack()">go back</button>
+
+
+</div>-->
+<mat-accordion>
+  <div id="head">
+    <button mat-raised-button id="back" color="primary" (click)="goBack()">Indietro</button>
+    <p id="title">Nuovo Materiale</p>
+  </div>
+
+
+      <input class="file-input" type="file" (change)="startUpload($event.target.files)">
+
+
+    <div class="bar" *ngIf="percentage | async as pct">
+
+      <p *ngIf="pct < 100">Attendi Caricamento...</p>
+      <p *ngIf="pct === 100">Premi Invio per confermare</p>
+      <progress class="progress is-info" [value]="pct" max="100">
+      </progress>
+
+      {{ pct | number }}%
+
+    </div>
+
+  <form (ngSubmit)="onSubmit()" #newMatForm="ngForm">
+
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput maxlength="45" placeholder="Nome" id="nome" [(ngModel)]="mat.nome" name="nome" #nome="ngModel" required>
+      <mat-error *ngIf="nome.invalid">Campo obbligatorio (max. dimensione 45)</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Url</mat-label>
+      <input matInput placeholder="Url" id="url" [(ngModel)]="mat.url" name="url" #url="ngModel" readonly required>
+      <mat-error *ngIf="url.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Data</mat-label>
+      <input matInput  placeholder="data" id="data" [(ngModel)]="mat.data" name="data" #data="ngModel" >
+      <mat-error *ngIf="data.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button id="sub" color="accent" type="submit" [disabled]="!newMatForm.form.valid">Invio</button>
+
+  </form>
+  <br>
+
+
+</mat-accordion>
+<!--<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Firebase Cloud Storage & Angular 5
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Select a file for upload:</h5>
+      <input type="file" (change)="upload($event)" />
+    </div>
+  </div>
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+         [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)"
+         aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+  <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
+    File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+  </div>
+</div>-->
+

@@ -1,0 +1,10 @@
+<h3 id="title">Area Docenti</h3>
+<mat-accordion>
+  <mat-nav-list>
+    <mat-list-item *ngFor="let doc of docenti">
+      <p class="dati">{{doc.professore}}</p>
+      <button class="btn" color="primary" [routerLink]="['/docente', doc.idMatricola]" ><i class="fas fa-arrow-circle-right"></i></button>
+
+    </mat-list-item>
+  </mat-nav-list>
+</mat-accordion>

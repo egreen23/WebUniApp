@@ -1,0 +1,67 @@
+<mat-accordion>
+  <div id="head">
+    <button mat-raised-button id="back" color="primary" (click)="goBack()">Indietro</button>
+    <p id="title">Modifica Insegnamento</p>
+  </div>
+  <form (ngSubmit)="onSubmit()" #insegForm="ngForm">
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput placeholder="Nome" id="nome" [(ngModel)]="insegnamento.nome" name="nome" #nome="ngModel" required>
+      <mat-error *ngIf="nome.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Descrizione</mat-label>
+      <input matInput placeholder="Descrizione" id="descrizione" [(ngModel)]="insegnamento.descrizione" name="descrizione" #descrizione="ngModel" required>
+      <mat-error *ngIf="descrizione.invalid">Campo obbligatorio </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Crediti</mat-label>
+      <input matInput placeholder="Crediti" id="crediti" [(ngModel)]="insegnamento.crediti" name="crediti" #crediti="ngModel" pattern="\d*" required>
+      <mat-error *ngIf="crediti.invalid">Campo obbligatorio (inserire un numero)</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Anno Corso</mat-label>
+      <input matInput placeholder="Anno Corso" id="annocorso" [(ngModel)]="insegnamento.annoCorso" name="annocorso" #annocorso="ngModel" required>
+      <mat-error *ngIf="annocorso.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" id="doc" appearance="outline">
+        <mat-label>Docente</mat-label>
+          <input matInput id="docente" [(ngModel)]="insegnamento.professore" name="docente" required readonly #docente="ngModel">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" id="doc" appearance="outline">
+      <mat-label>Nuovo Docente</mat-label>
+      <mat-select placeholder="" class="form" id="newdoc" name="newdoc" [(ngModel)]="insegnamento.idDocente"  #idaula="ngModel"  required>
+        <mat-option *ngFor="let doc of docenti" [value]="doc.idDocente">{{doc.professore}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!--<swal
+      #mySwal
+      title="Seleziona Docente"
+      text="Scelgi Docente"
+      type="question"
+      [showCancelButton]="true"
+    >
+      <div *swalPartial class="swal2-select">
+        <select class="swal2-select" id="swal2-content" name="doc" [(ngModel)]="insegnamento.professore">
+          <option *ngFor="let doc of docenti" [value]="doc.professore">{{doc.professore}}</option>
+        </select>
+      </div>
+    </swal>-->
+
+<!--
+    <button id="cambia" mat-raised-button [swal]="mySwal">Cambia Docente...</button>
+-->
+
+    <br>
+
+    <button mat-raised-button id="sub" color="accent" type="submit" [disabled]="!insegForm.form.valid">Invio</button>
+
+  </form>
+  <br>
+</mat-accordion>

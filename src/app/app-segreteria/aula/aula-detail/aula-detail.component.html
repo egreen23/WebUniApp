@@ -1,0 +1,81 @@
+<mat-accordion>
+  <div id="head">
+    <button mat-raised-button id="back" color="primary" (click)="goBack()">Indietro</button>
+    <p id="title">Modifica Aula</p>
+  </div>
+  <form (ngSubmit)="onSubmit()" #aulaForm="ngForm">
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput placeholder="Nome" id="nome" name="nome" [(ngModel)]="room.nome" #nome="ngModel" required>
+      <mat-error *ngIf="nome.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Latitudine</mat-label>
+      <input matInput placeholder="" id="latitudine" [(ngModel)]="room.latitudine" name="latitudine" required #latitudine="ngModel">
+      <mat-error *ngIf="latitudine.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Longitudine</mat-label>
+      <input matInput placeholder="" id="longitudine" [(ngModel)]="room.longitudine" name="longitudine" required #longitudine="ngModel">
+      <mat-error *ngIf="longitudine.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Edificio</mat-label>
+      <input matInput placeholder="" id="edificio" [(ngModel)]="room.edificio" name="edificio" required #edificio="ngModel">
+      <mat-error *ngIf="edificio.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Piano</mat-label>
+      <input matInput placeholder="" id="piano" name="piano" [(ngModel)]="room.piano" #piano="ngModel" required>
+      <mat-error *ngIf="piano.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button class="sub" color="accent" type="submit" [disabled]="!aulaForm.form.valid">Aggiorna</button>
+
+  </form>
+
+  <br>
+  <div>
+    <form (ngSubmit)="onSubmitTool()" #addToolForm="ngForm">
+      <mat-form-field class="form" appearance="outline">
+       <input matInput placeholder="Nome" id="tool" [(ngModel)]="newTool.nomeTool" name="tool" required readonly #tool="ngModel">
+      </mat-form-field>
+      <swal
+        #mySwal
+        title="Seleziona Tool"
+        text="Scelgi Tool"
+        type="question"
+        [showCancelButton]="true"
+      >
+        <div *swalPartial class="swal2-select">
+          <select class="swal2-select" id="swal2-content" name="doc" [(ngModel)]="newTool.nomeTool">
+            <option *ngFor="let str of strumenti" [value]="str.nome">{{str.nome}}</option>
+          </select>
+        </div>
+      </swal>
+      <button mat-raised-button id="swal" [swal]="mySwal">Scegli Tool</button>
+      <button mat-raised-button color="accent" type="submit" [disabled]="!addToolForm.form.valid">Aggiungi</button>
+      <br>
+
+
+
+    </form>
+  </div>
+  <br>
+  <br>
+  <div *ngIf="tools?.length!=0">
+    <mat-nav-list>
+      <mat-list-item *ngFor="let tool of tools">
+        <mat-checkbox [(ngModel)]="tool.checked" color="primary"></mat-checkbox>
+        <p class="dati">{{tool.nomeTool}}</p> <p class="int">Descrizione:</p><p class="dati"> {{tool.descrizioneTool}}</p>
+      </mat-list-item>
+    </mat-nav-list>
+    <button mat-raised-button class="sub" color="warn" (click)="deleteTool()">Rimuovi</button>
+  </div>
+
+</mat-accordion>
+

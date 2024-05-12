@@ -1,0 +1,41 @@
+<mat-accordion>
+  <div id="head">
+    <button mat-raised-button id="back" color="primary" (click)="goBack()">Indietro</button>
+    <p id="title">Nuova Aula</p>
+  </div>
+  <form (ngSubmit)="onSubmit()" #newaulaForm="ngForm">
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput placeholder="Nome" id="nome" name="nome" [(ngModel)]="newAula.nome" #nome="ngModel" required>
+      <mat-error *ngIf="nome.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Latitudine</mat-label>
+      <input matInput placeholder="" id="latitudine" [(ngModel)]="newAula.latitudine" name="latitudine" required #latitudine="ngModel">
+      <mat-error *ngIf="latitudine.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Longitudine</mat-label>
+      <input matInput placeholder="" id="longitudine" [(ngModel)]="newAula.longitudine" name="longitudine" required #longitudine="ngModel">
+      <mat-error *ngIf="longitudine.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Edificio</mat-label>
+      <input matInput placeholder="" id="edificio" [(ngModel)]="newAula.edificio" name="edificio" required #edificio="ngModel">
+      <mat-error *ngIf="edificio.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Piano</mat-label>
+      <input matInput placeholder="" id="piano" name="piano" [(ngModel)]="newAula.piano" #piano="ngModel" required>
+      <mat-error *ngIf="piano.invalid">Campo obbligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button id="sub" color="accent" type="submit" [disabled]="!newaulaForm.form.valid">Invio</button>
+
+  </form>
+  <br>
+</mat-accordion>
